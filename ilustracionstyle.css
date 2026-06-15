@@ -141,46 +141,6 @@
     }
   }
 
-.galleryPurp {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 50px;
-    
-  }
-  
-  .galleryPurp img {
-    width: 15%;
-    margin: 5px;
-    border: 5px double rgb(144, 0, 255);
-    box-sizing: border-box;
-    cursor: pointer;
-    
-  }
-
-.modalPurp {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    margin-top: 70px;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 100;
-  }
-  
-  .modalPurp-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    z-index: 100;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 1;
-    border: 3px double rgb(144, 0, 255);
-  }
 
 
 

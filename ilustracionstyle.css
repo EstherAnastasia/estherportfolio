@@ -141,6 +141,23 @@
     }
   }
 
+.galleryPurp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    
+  }
+  
+  .galleryPurp img {
+    width: 15%;
+    margin: 5px;
+    border: 5px double rgb(144, 0, 255);
+    box-sizing: border-box;
+    cursor: pointer;
+    
+  }
+
 
 
 

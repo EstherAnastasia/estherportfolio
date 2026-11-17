@@ -1,0 +1,442 @@
+/* =========================================================
+   1. VARIABLES  -> aquí cambias colores y fuentes de TODA la web
+   Paleta sacada del logo de Catalina's Horror Adventure
+   ========================================================= */
+:root {
+  /* Fondos (negro con un toque morado para que case con el logo) */
+  --black:   #0b0812;
+  --black-2: #120d1c;
+
+  /* Textos y separadores */
+  
+  --pearl:   #f2efe6;
+
+  /* Colores del logo */
+  --purple:       #23003f;  /* morado de las letras CATALINA'S  -> color principal */
+  --purple-dark:  #4a2a8f;  /* sombra de las letras */
+  --lavender:     #c9a8ff;  /* contorno claro de las letras -> detalles y títulos */
+  --red:          #d42a2a;  /* HORROR -> acento (subrayados, botón secundario) */
+  --pink:         #ff8fb0;  /* brillo/halo del logo -> hovers y resplandores */
+  --yellow:       #fff8be;  /* brillo/halo del logo -> hovers y resplandores */
+
+  /* Fuentes: si cambias la fuente, cámbiala también en el <link> del index.html */
+  --font-title: "Medula One", system-ui;  /* pixel art, como el logo */
+  --font-body:  "Medula One", system-ui;
+
+  --header-h: 64px;
+}
+
+/* =========================================================
+   2. RESET Y BASE
+   ========================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--pearl);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  font-weight: 300;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1, h2 { font-family: var(--font-title); letter-spacing: .04em; font-weight: 700; }
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  height: var(--header-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+  background: linear-gradient(to bottom, rgba(11,8,18,.8), transparent);
+  transition: background .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+/* al hacer scroll, JS añade .scrolled y el header se vuelve sólido */
+.site-header.scrolled {
+  background: rgba(11,8,18,.92);
+  backdrop-filter: blur(8px);
+  border-bottom-color: rgba(242,239,230,.12);
+}
+.header-left { display: flex; align-items: center; gap: 18px; }
+.brand-logo {
+  font-family: var(--font-title); font-size: 1.4rem; letter-spacing: .2em;
+  color: var(--lavender);
+}
+.brand-logo.small { font-size: 1rem; }
+.brand img { height: 34px; display: block; }   /* para tu logo PNG del header */
+.brand-role {
+  font-size: .8rem; letter-spacing: .15em; text-transform: uppercase;
+  padding-left: 18px; border-left: 1px solid rgba(242,239,230,.35); /* separador */
+}
+.header-right { display: flex; align-items: center; gap: 28px; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+.header-right > a {
+  padding: 8px 22px;
+  border: 1px solid rgba(242,239,230,.55);
+  border-radius: 999px;
+  transition: .25s;
+}
+.header-right > a:hover {
+  color: var(--pearl);
+  border-color: var(--pink);
+  background: rgba(123,77,224,.25);
+  box-shadow: 0 0 14px rgba(255,143,176,.35);
+}
+.socials { display: flex; gap: 10px; padding-left: 24px; border-left: 1px solid rgba(242,239,230,.35); }
+.socials a {
+  width: 30px; height: 30px; display: grid; place-items: center;
+  border: 1px solid rgba(242,239,230,.35); border-radius: 50%;
+  font-size: .75rem; transition: .2s;
+}
+.socials a:hover { background: var(--purple); color: var(--pearl); border-color: var(--lavender); }
+.menu-toggle { display: none; font-size: 1.6rem; }
+
+/* =========================================================
+   4. SECCIONES (paneles a pantalla completa con fondo)
+   Para poner imágenes reales: añade tus archivos en images/ con estos nombres
+   ========================================================= */
+.panel {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--header-h) + 40px) 8vw 60px;
+  position: relative;
+  background-size: cover; background-position: center;
+}
+
+/* --- Fondos PLACEHOLDER: degradado oscuro + (tu imagen encima cuando exista) --- */
+.hero {
+  background-image:
+    linear-gradient(to bottom, rgba(11,8,18,.35), rgba(11,8,18,.85)),
+    url('../images/key.png'),
+    linear-gradient(135deg, #2a1459, #0b0812 60%, #3a0f1a);
+  text-align: center;
+}
+.bg-trailer {
+  background-image:
+    linear-gradient(rgba(11,8,18,.7), rgba(11,8,18,.8)),
+    url('../images/indalo.png'),
+    linear-gradient(160deg, #0b0812, #1d1038);
+
+    
+}
+.bg-info-1 { background-image: linear-gradient(rgba(11,8,18,.3), rgba(11,8,18,.5)), url('../images/goat.png'), linear-gradient(120deg, #1d1038, #0b0812); }
+.bg-info-2 { background-image: linear-gradient(rgba(11,8,18,.3), rgba(11,8,18,.5)), url('../images/captura_arma.png'), linear-gradient(120deg, #301018, #0b0812); }
+.bg-info-3 { background-image: linear-gradient(rgba(11,8,18,.3), rgba(11,8,18,.5)), url('../images/forest.png'), linear-gradient(120deg, #2a1459, #0b0812); }
+
+/* HERO */
+.hero-content { max-width: 800px; }
+
+/* Logo del juego (imagen PNG) centrado */
+.game-logo { margin-bottom: 18px; }
+.game-logo img {
+  display: block;                 /* se comporta como bloque... */
+  margin: 0 auto;                 /* ...y auto a los lados lo centra */
+  max-width: min(1200px, 90%);     /* tamaño máximo; en móvil se adapta */
+  height: auto;                   /* mantiene la proporción */
+  filter: drop-shadow(0 0 28px rgba(255,143,176,.35));  /* halo rosa, como el del logo */
+}
+
+.hero-tag {
+  font-family: var(--font-title);   /* fuente pixel, igual que el logo */
+  font-weight: 700;
+  font-size: .85rem;               /* más grande que antes (.85rem) */
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  color: var(--yellow);              /* texto claro para que destaque */
+  /* GLOW ROJO: varias sombras apiladas, de cerca a lejos.
+     Para más intensidad sube los números de opacidad o el radio (px). */
+  text-shadow:
+    0 0 6px  rgba(255, 59, 59, .9),
+    0 0 14px rgba(212, 42, 42, .8),
+    0 0 28px rgba(212, 42, 42, .6);
+}
+
+.scroll-hint { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); animation: bounce 1.8s infinite; opacity: .7; }
+@keyframes bounce { 50% { transform: translate(-50%, 8px); } }
+
+/* BOTONES */
+.btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 14px 34px;
+  font-weight: 500; font-size: .85rem; letter-spacing: .18em;
+  border: 1px solid var(--purple); transition: .25s;
+  border-radius: 999px;
+  
+}
+/* Principal: morado */
+.btn-primary { background: var(--purple); color: var(--pearl); border-color: var(--lavender); }
+.btn-primary:hover { background: transparent; color: var(--lavender); }
+/* Secundario: contorno rojo (el rojo de HORROR) */
+.btn-ghost { border-color: var(--red); color: var(--pearl); background: rgba(212,42,42,.15); }
+.btn-ghost:hover { background: var(--red); }
+/* Terciario: contorno blanco (el rojo de HORROR) */
+.btn-white { border-color: var(--pearl); color: var(--pearl); background: rgba(0, 0, 0, 0.15); }
+.btn-white:hover { background: var(--black-2); color: var(--lavender); }
+/* TRAILER */
+.trailer-wrap { max-width: 900px; text-align: center; }
+.trailer-wrap h2 { margin: 36px 0 14px; font-size: clamp(1.4rem, 3vw, 2rem); }
+.trailer-wrap p { margin-bottom: 30px; max-width: 650px; margin-inline: auto; }
+
+/* TARJETAS DE VÍDEO (trailer grande y las 2 de Media) */
+.video-card {
+  position: relative; width: 100%; aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #2a1459, #0b0812);
+  border: 1px solid rgba(242, 230, 240, 0.2);
+  background-size: cover; background-position: center;
+  overflow: hidden; transition: .3s;
+}
+.video-card:hover { border-color: var(--pink); transform: translateY(-3px); box-shadow: 0 0 24px rgba(123,77,224,.4); }
+.play-icon {
+  position: absolute; inset: 0; margin: auto;
+  width: 70px; height: 70px; display: grid; place-items: center;
+  border-radius: 50%; background: rgba(11,8,18,.65);
+  border: 1px solid var(--pearl); font-size: 1.4rem; padding-left: 4px;
+  transition: .25s;
+}
+.video-card:hover .play-icon { background: var(--purple); border-color: var(--lavender); }
+
+/* CAJA TRANSLÚCIDA (rectángulo semitransparente + texto claro) */
+.glass-box {
+  width: min(560px, 100%);
+  padding: 40px 44px;
+  background: rgba(11,8,18,.55);                 /* ← transparencia: cambia el último número (0 a 1) */
+  border: 1px solid rgba(201,168,255,.22);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);                   /* desenfoca lo que hay detrás */
+  -webkit-backdrop-filter: blur(10px);
+ 
+  
+  color: var(--pearl);
+}
+.glass-box h2 { font-size: 1.6rem; margin-bottom: 16px; color: var(--pearl); }
+.glass-box h2::after { content: ''; display: block; width: 50px; height: 2px; background: var(--red); margin-top: 12px; }
+.align-left  { margin-right: auto; }
+.align-right { margin-left: auto; }
+
+/* MEDIA */
+.media { padding: 100px 8vw; text-align: center; background: var(--black-2); }
+.media-title { font-size: 2rem; margin-bottom: 40px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--pearl);}
+.media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1000px; margin: 0 auto 44px; }
+
+/* FOOTER */
+.site-footer { padding: 50px 8vw 36px; text-align: center; border-top: 1px solid rgba(242,239,230,.12); }
+.lang-switch { display: flex; justify-content: center; gap: 6px; margin-bottom: 30px; }
+.lang-switch button { padding: 6px 16px; font-size: .8rem; letter-spacing: .1em; border: 1px solid rgba(242,239,230,.25); transition: .2s; }
+.lang-switch button:hover { border-color: var(--pink); }
+.lang-switch button.active { background: var(--purple); color: var(--pearl); border-color: var(--lavender); }
+.footer-logos { display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; margin-bottom: 24px; }
+.sep { width: 1px; height: 28px; background: rgba(242,239,230,.35); }  /* separadores */
+.platform { font-size: .8rem; letter-spacing: .2em; opacity: .85; }
+.pegi { border: 2px solid var(--pearl); padding: 2px 10px; font-weight: 600; }
+.copy { font-size: .75rem; opacity: .6; }
+
+/* =========================================================
+   PÁGINA PROJECTS  (projects.html)
+   Misma idea que el index: cada sección tiene su clase de fondo
+   (.bg-p-...) con un degradado de color distinto. Para poner tu
+   imagen solo cambia el nombre del archivo en su url('...').
+   ========================================================= */
+:root { --project-logo-w: 720px; }   /* ancho máximo de los logos de proyecto (= el logo del hero del index) */
+
+/* Enlace de la página actual en el menú */
+.header-right > a.active { border-color: var(--lavender); background: rgba(123,77,224,.35); }
+
+/* Sección de proyecto: TODO centrado (logo, subtítulo y botón) */
+.project { text-align: center; }
+.project-content {
+  width: 100%; max-width: 800px;
+  margin: 0 auto;                 /* centra el bloque en la pantalla */
+  display: flex; flex-direction: column; align-items: center;   /* y centra lo de dentro */
+}
+
+/* Logo PNG de cada proyecto */
+.project-logo { margin-bottom: 24px; width: 100%; }
+.project-logo img {
+  display: block; margin: 0 auto;
+  max-width: min(var(--project-logo-w), 90%); height: auto;
+  filter: drop-shadow(0 4px 24px rgba(0,0,0,.7));
+}
+
+/* Subtítulo bajo el logo ("En desarrollo", "Juego conceptual...") en forma de píldora */
+.project-status {
+  display: inline-block; margin-bottom: 10px; padding: 6px 22px;
+  font-family: var(--font-title); font-size: 1rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--yellow);
+  text-shadow:
+    0 0 6px  rgba(0, 0, 0, 0.9),
+    0 0 14px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(0, 0, 0, 0.6);
+}
+/* (La primera sección de Projects usa los estilos del hero del index: .hero, .hero-content,
+   .game-logo, .hero-tag y .btn-row. Para cambiar su tamaño o glow, cámbialo en el HERO.) */
+
+/* Media con UN solo vídeo (Santopetar): la tarjeta queda centrada y con buen tamaño */
+.media-grid.single { grid-template-columns: minmax(0, 640px); justify-content: center; }
+
+
+/* --- FONDOS DE PROYECTOS ---------------------------------------------------
+   Cada uno = capa oscura + TU IMAGEN + degradado de color de reserva.
+   Mientras la imagen no exista, se ve el degradado (cada sección distinta).
+   Para cambiarla: sustituye el nombre dentro de url('../images/...').          */
+
+/* 1 · Catalina's Horror Adventure (la capa oscura y el degradado son los del hero del index) */
+.bg-p-cah {
+  background-image:
+    linear-gradient(to bottom, rgba(11,8,18,.35), rgba(11,8,18,.85)),
+    url('../images/school.png'),
+    linear-gradient(135deg, #2a1459, #0b0812 60%, #3a0f1a);
+}
+/* 2 · 1772 (portada) */
+.bg-p-1772 {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85)),
+    url('../images/projects/fondoprueba.jpg'),
+    linear-gradient(135deg, #000000, #000000 60%, #000000);
+}
+/* 2b · 1772 (sección de información) */
+.bg-p-1772-info {
+  background-image:
+    linear-gradient(rgba(11,8,18,.3), rgba(11,8,18,.5)),
+    url('../images/projects/typeOpen.jpg'),
+    linear-gradient(120deg, #301018, #0b0812);
+}
+/* 3 · Catalina's Adventure 2 (portada) */
+.bg-p-cah2 {
+  background-image:
+    linear-gradient(to bottom, rgba(11,8,18,.35), rgba(11,8,18,.85)),
+    url('../images/projects/cadv2-bg.jpg'),
+    linear-gradient(135deg, #1d1038, #0b0812 60%, #2a1459);
+}
+/* 3b · Catalina's Adventure 2 (sección de información) */
+.bg-p-cah2-info {
+  background-image:
+    linear-gradient(rgba(11,8,18,.3), rgba(11,8,18,.5)),
+    url('../images/projects/casas_cadv.png'),
+    linear-gradient(240deg, #2a1459, #0b0812);
+}
+/* 4 · Santopetar (portada) */
+.bg-p-santo {
+  background-image:
+    linear-gradient(to bottom, rgba(11,8,18,.35), rgba(11,8,18,.85)),
+    url('../images/projects/artsanto.jpg'),
+    linear-gradient(160deg, #0b0812, #1d1038 55%, #301018);
+}
+/* =========================================================
+   PÁGINA ABOUT  (about.html)
+   Fondo negro, título arriba, y debajo texto + sprite al lado.
+   ========================================================= */
+.about {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--header-h) + 80px) 8vw 80px;
+  background: var(--black);                    /* fondo negro */
+}
+.about-inner { width: 100%; max-width: 1000px; }
+
+/* Título "About" con la línea roja de debajo (como los títulos de las cajas) */
+.about-title { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 40px; }
+.about-title::after { content: ''; display: block; width: 60px; height: 2px; background: var(--red); margin-top: 16px; }
+
+/* Texto a la izquierda, sprite a la derecha */
+.about-body {
+  display: grid;
+  grid-template-columns: 1fr minmax(220px, 340px);   /* texto flexible | sprite (220-340px) */
+  gap: 56px;
+  align-items: start;                                /* texto justo debajo del título; el sprite arranca a su altura */
+}
+.about-text p { line-height: 1.8; }
+
+/* Sprite PNG. image-rendering: pixelated mantiene los píxeles nítidos al ampliarlo */
+.about-sprite { display: flex; justify-content: center; }
+.about-sprite img {
+  display: block; max-width: 100%; height: auto;     /* el ancho exacto lo fija el script de about.html (múltiplos enteros) */
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 24px rgba(255, 218, 97, 0.479));   /* halo morado suave */
+}
+/* Recuadro de reserva (solo aparece si todavía no existe images/about/sprite.png) */
+.about-sprite.empty {
+  aspect-ratio: 1 / 1;
+  border: 1px dashed rgba(201,168,255,.35); border-radius: 12px;
+  background: linear-gradient(135deg, #2a1459, #0b0812);
+}
+
+@media (max-width: 800px) {
+  .about-body { grid-template-columns: 1fr; gap: 36px; }
+  .about-sprite { width: min(260px, 100%); margin: 0 auto; }   /* en móvil el sprite pasa debajo del texto */
+}
+/* MODAL DE VÍDEO */
+.modal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.9); display: none; align-items: center; justify-content: center; }
+.modal.open { display: flex; }
+.modal-inner { width: min(1000px, 92vw); aspect-ratio: 16/9; }
+.modal-inner iframe { width: 100%; height: 100%; border: 0; }
+.modal-close { position: absolute; top: 20px; right: 28px; font-size: 1.8rem; }
+.modal-inner img { width: 100%; height: 100%; object-fit: contain; }
+.lb-img { width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; }
+
+/* PANEL ALL MEDIA */
+.no-scroll { overflow: hidden; }
+.media-modal {
+  position: fixed; inset: 0; z-index: 90;
+  display: none; overflow-y: auto;
+  padding: 80px 5vw 60px;
+  background: rgba(8,5,14,.96);
+}
+.media-modal.open { display: block; }
+.media-modal .modal-close { position: fixed; z-index: 2; }
+.media-panel { max-width: 1000px; margin: 0 auto; }
+.media-player {
+  aspect-ratio: 16/9; background: #000;
+  border: 1px solid rgba(201,168,255,.25);
+  box-shadow: 0 0 40px rgba(123,77,224,.25);
+}
+.media-player iframe { width: 100%; height: 100%; border: 0; }
+
+.media-tabs { display: flex; gap: 12px; margin: 16px 0 44px; flex-wrap: wrap; }
+.thumb {
+  width: 160px; aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #2a1459, #0b0812); background-size: cover; background-position: center;
+  border: 1px solid rgba(242,239,230,.2); opacity: .6; transition: .25s;
+}
+.thumb:hover, .thumb.active { opacity: 1; border-color: var(--pink); }
+
+.media-panel h3 { font-family: var(--font-title); font-size: 1.5rem; margin-bottom: 20px; }
+.media-panel h3::after { content: ''; display: block; width: 50px; height: 2px; background: var(--red); margin-top: 10px; }
+.shots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 44px; }
+.shot {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(242,239,230,.2);
+  background: linear-gradient(135deg, #2a1459, #0b0812);
+  transition: .25s;
+  cursor: pointer;
+}
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.shot:hover { transform: scale(1.03); border-color: var(--pink); box-shadow: 0 0 20px rgba(123,77,224,.4); }
+
+/* =========================================================
+   5. RESPONSIVE (móvil)
+   ========================================================= */
+@media (max-width: 800px) {
+  .site-header { padding: 0 18px; }
+  .brand-role { display: none; }
+  .menu-toggle { display: block; }
+  .header-right {
+    position: absolute; top: var(--header-h); left: 0; right: 0;
+    flex-direction: column; padding: 24px; gap: 18px;
+    background: rgba(11,8,18,.96); display: none;
+  }
+  .header-right.open { display: flex; }
+  .socials { border-left: none; padding-left: 0; }
+  .media-grid { grid-template-columns: 1fr; }
+  .glass-box { padding: 28px; }
+}

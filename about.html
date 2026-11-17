@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- For most browsers -->
+  <link rel="icon" type="image/png" href="/images/icon.ico" sizes="32x32">
+
+  <!-- For SVG (best quality, scales perfectly) -->
+  <link rel="icon" type="image/svg+xml" href="/images/icon.ico">
+  
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" href="/images/icon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Esther</title>
+  <meta name="description" content="About me: developer and videogame artist">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Mismo CSS que el resto de páginas -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (igual que el index; aquí "About" va marcado como activo)
+       ===================================================== -->
+  <header class="site-header" id="header">
+    <div class="header-left">
+      <!-- El logo vuelve al index -->
+      <a href="index.html" class="brand">
+        <img src="images/logo-esther.png" alt="Logo">
+      </a>
+      <span class="brand-role" data-i18n="role">Developer / Videogame Artist</span>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+    <nav class="header-right" id="nav">
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="https://www.artstation.com/esthersita" target="_blank" rel="noopener" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="about.html" class="active" data-i18n="nav_about">About</a>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/catalinahorror?srtk=ZHFpYnA2b2VyaHVl&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">in</a>
+        <a href="https://x.com/CatalinaHorror" target="_blank" rel="noopener" aria-label="Twitter">X</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         ABOUT: fondo negro, título arriba, y debajo
+         el texto (izquierda) con el sprite al lado (derecha)
+         ===================================================== -->
+    <section class="about">
+      <div class="about-inner">
+
+        <h1 class="about-title" data-i18n="about_title">About</h1>
+
+        <div class="about-body">
+          <div class="about-text">
+            <!-- El texto está en js/i18n.js (claves about_text), en los 3 idiomas -->
+            <p data-i18n="about_text">Placeholder text. Tell here who you are: your story, your work as a developer and videogame artist, what inspires you and what you are working on right now.</p>
+          </div>
+
+          <!-- SPRITE: guarda tu PNG como images/about/sprite.png.
+               Si el archivo no existe todavía, se ve un recuadro de reserva. -->
+          <div class="about-sprite">
+            <img src="images/about/mama.gif" alt="Sprite"
+                 onerror="this.parentElement.classList.add('empty'); this.remove();">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER (igual que el index)
+       ===================================================== -->
+  <footer class="site-footer">
+    <div class="lang-switch" id="langSwitch">
+      <button data-lang="en">English</button>
+      <button data-lang="es">Español</button>
+      <button data-lang="ca">Català</button>
+    </div>
+
+    <div class="footer-logos">
+      <img src="images/logo-xikito.png" alt="Logo">
+      <span class="sep"></span>
+      <span class="platform">STEAM</span>
+      <span class="platform">WINDOWS</span>
+      <span class="sep"></span>
+      <span class="pegi">16+</span>
+    </div>
+
+    <p class="copy">© 2026 Lazy Dev · <span data-i18n="rights">All rights reserved.</span></p>
+  </footer>
+
+  <!-- Ventana simple (no se usa aquí, pero main.js la necesita para no dar errores) -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* SPRITE CON PÍXEL LIMPIO: lo amplía solo en múltiplos enteros de su tamaño (x1, x2, x3...)
+       hasta ocupar lo máximo posible de su columna. Así los píxeles nunca salen deformados. */
+    (function () {
+      var img = document.querySelector('.about-sprite img');
+      if (!img) return;
+      function fit() {
+        var n = img.naturalWidth, box = img.parentElement.clientWidth;
+        if (!n || !box) return;
+        img.style.width = (n >= box) ? '100%' : (n * Math.floor(box / n)) + 'px';
+      }
+      img.addEventListener('load', fit);
+      if (img.complete) fit();
+      window.addEventListener('resize', fit);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+  <!-- For most browsers -->
+  <link rel="icon" type="image/png" href="/images/icon.ico" sizes="32x32">
+
+  <!-- For SVG (best quality, scales perfectly) -->
+  <link rel="icon" type="image/svg+xml" href="/images/icon.ico">
+  
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" href="/images/icon.ico">
+</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalina's Horror Adventure</title>
+  <meta name="description" content="Catalina's Horror Adventure - Demo & game on Steam">
+
+  <!-- FUENTES (Google Fonts). Para cambiar la tipografía: cambia el enlace de aquí
+       y las variables --font-title / --font-body en css/style.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (fijo arriba)
+       Izquierda: logo + puesto | Derecha: menú + redes
+       ===================================================== -->
+  <header class="site-header" id="header">
+    <div class="header-left">
+      <a href="#hero" class="brand">
+        <!-- Cambia esto por tu logo: <img src="images/logo.svg" alt="Logo"> -->
+        <img src="images/logo-esther.png" alt="Logo">
+      </a>
+      <span class="brand-role" data-i18n="role">Developer / Videogame Artist</span>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+    <nav class="header-right" id="nav">
+      <!-- Estas páginas las haremos al final -->
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="https://www.artstation.com/esthersita" target="_blank" rel="noopener" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+
+      <!-- REDES: cambia los href por tus enlaces reales -->
+      <div class="socials">
+        <a href="https://www.instagram.com/catalinahorror?srtk=ZHFpYnA2b2VyaHVl&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">in</a>
+        <a href="https://x.com/CatalinaHorror" target="_blank" rel="noopener" aria-label="Twitter">X</a>
+      
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         1. HERO: fondo + logo del juego + 2 botones a Steam
+         ===================================================== -->
+    <section class="panel hero" id="hero">
+      <div class="hero-content">
+        <!-- Cambia por el logo del juego: <img src="images/game-logo.png" alt="Catalina's Horror Adventure"> -->
+         <h1 class="game-logo">
+        <img src="images/game-logo.png" alt="Catalina's Horror Adventure">
+        </h1>
+        <p class="hero-tag" data-i18n="hero_tag">Available now on Steam</p>
+        <div class="btn-row">
+          <!-- PON AQUÍ LOS ENLACES REALES DE STEAM -->
+          <a class="btn btn-primary" href="https://store.steampowered.com/app/5589170/Catalinas_Horror_Adventure_Demo/" target="_blank" rel="noopener" data-i18n="btn_demo">PLAY THE DEMO</a>
+          <a class="btn btn-ghost" href="https://store.steampowered.com/app/3040670/Catalinas_Horror_Adventure/" target="_blank" rel="noopener" data-i18n="btn_game">GET THE GAME</a>
+        </div>
+      </div>
+      <div class="scroll-hint">↓</div>
+    </section>
+
+    <!-- =====================================================
+         2. TRAILER: vídeo + texto + botones
+         ===================================================== -->
+    <section class="panel bg-trailer" id="trailer">
+      <div class="trailer-wrap">
+        <!-- data-video = ID de YouTube (lo que va después de ?v= en la URL) -->
+        <button class="video-card big" data-video="bHKWn9_p0ak" aria-label="Play trailer">
+          <span class="play-icon">▶</span>
+        </button>
+        <h2 data-i18n="trailer_title">PLAY THE DEMO OR GET THE FULL GAME!</h2>
+        <p data-i18n="trailer_text">Placeholder text. Try the first chapter for free with the demo, or jump straight into the full experience already available on Steam.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://store.steampowered.com/app/5589170/Catalinas_Horror_Adventure_Demo/" target="_blank" rel="noopener" data-i18n="btn_demo">PLAY THE DEMO</a>
+          <a class="btn btn-ghost" href="https://store.steampowered.com/app/3040670/Catalinas_Horror_Adventure/" target="_blank" rel="noopener" data-i18n="btn_game">GET THE GAME</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         3-5. SECCIONES DE INFO (mismo formato x3)
+         Cada una: fondo propio (.bg-info-1/2/3) + caja translúcida
+         .align-left / .align-right mueven la caja
+         ===================================================== -->
+    <section class="panel bg-info-1" id="info1">
+      <div class="glass-box align-left">
+        <h2 data-i18n="s1_title">What is Catalina's Horror Adventure?</h2>
+        <p data-i18n="s1_text">Placeholder text. Describe here the premise of your game: who Catalina is, where the story takes place and what makes the experience unique.</p>
+      </div>
+    </section>
+
+    <section class="panel bg-info-2" id="info2">
+      <div class="glass-box align-right">
+        <h2 data-i18n="s2_title">Gameplay</h2>
+        <p data-i18n="s2_text">Placeholder text. Explain the main mechanics: exploration, puzzles, tension, how the player interacts with the world.</p>
+      </div>
+    </section>
+
+    <section class="panel bg-info-3" id="info3">
+      <div class="glass-box align-left">
+        <h2 data-i18n="s3_title">The world</h2>
+        <p data-i18n="s3_text">Placeholder text. Talk about the setting, the art style, the atmosphere and the characters players will meet.</p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         6. MEDIA: 2 vídeos + botón ALL MEDIA
+         Click en la tarjeta -> se abre el vídeo de YouTube en una ventana
+         ===================================================== -->
+    <section class="media" id="media" data-media="mediaModal">
+      <h2 class="media-title" data-i18n="media_title">Media</h2>
+      <div class="media-grid">
+        <button class="video-card" data-video="aelH6hjWoeQ" data-gallery aria-label="Play video 1"><span class="play-icon">▶</span></button>
+        <button class="video-card" data-video="ahXJ0vh6eTA" data-gallery aria-label="Play video 2"><span class="play-icon">▶</span></button>
+      </div>
+      <button class="btn btn-primary" id="allMediaBtn" data-i18n="media_all">ALL MEDIA</button>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER: idioma + plataformas + PEGI + logo
+       ===================================================== -->
+  <footer class="site-footer">
+    <div class="lang-switch" id="langSwitch">
+      <button data-lang="en">English</button>
+      <button data-lang="es">Español</button>
+      <button data-lang="ca">Català</button>
+    </div>
+
+    <div class="footer-logos">
+      <!-- Logo del estudio / tuyo -->
+      <img src="images/logo-xikito.png" alt="Logo">
+      <span class="sep"></span>
+      <!-- Plataformas (cámbialas por imágenes/SVG oficiales cuando quieras) -->
+      <span class="platform">STEAM</span>
+      <span class="platform">WINDOWS</span>
+      <span class="sep"></span>
+      <!-- Calificación de edad -->
+      <span class="pegi">16+</span>
+    </div>
+
+    <p class="copy">© 2026 Lazy Dev · <span data-i18n="rights">All rights reserved.</span></p>
+  </footer>
+  <div class="media-modal" id="mediaModal" aria-hidden="true">
+    <button class="modal-close" id="mediaClose" aria-label="Close">✕</button>
+
+    <div class="media-panel">
+      <div class="media-player" id="mediaPlayer"></div>
+      <div class="media-tabs" id="mediaTabs"></div>
+
+      <h3 data-i18n="media_screenshots">Screenshots</h3>
+      <div class="shots-grid">
+          <button class="shot" data-src="images/screenshots/screen-1.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-1.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-2.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-2.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-3.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-3.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-4.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-4.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-5.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-5.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-6.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-6.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-7.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-7.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-8.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-8.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-9.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-9.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-10.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-10.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-11.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-11.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/screenshots/screen-12.png" aria-label="Screenshot 1"> <img src="images/screenshots/screen-12.jpg" alt="" loading="lazy"></button>
+      </div>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@lazydev69" target="_blank" rel="noopener" data-i18n="media_youtube">WATCH ON YOUTUBE</a>
+    </div>
+  </div>
+  <!-- VENTANA (MODAL) PARA LOS VÍDEOS DE YOUTUBE -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

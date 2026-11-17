@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- For most browsers -->
+  <link rel="icon" type="image/png" href="/images/icon.ico" sizes="32x32">
+
+  <!-- For SVG (best quality, scales perfectly) -->
+  <link rel="icon" type="image/svg+xml" href="/images/icon.ico">
+  
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" href="/images/icon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Esther</title>
+  <meta name="description" content="Projects: Catalina's Horror Adventure, 1772, Catalina's Adventure 2 and Santopetar">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Mismo CSS que el index: así todo mantiene la misma estética -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (igual que el index; aquí "Projects" va marcado como activo)
+       ===================================================== -->
+  <header class="site-header" id="header">
+    <div class="header-left">
+      <!-- El logo vuelve al index -->
+      <a href="index.html" class="brand">
+        <img src="images/logo-esther.png" alt="Logo">
+      </a>
+      <span class="brand-role" data-i18n="role">Developer / Videogame Artist</span>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+
+    <nav class="header-right" id="nav">
+      <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
+      <a href="https://www.artstation.com/esthersita" target="_blank" rel="noopener" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/catalinahorror?srtk=ZHFpYnA2b2VyaHVl&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">in</a>
+        <a href="https://x.com/CatalinaHorror" target="_blank" rel="noopener" aria-label="Twitter">X</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         PROYECTO 1 · CATALINA'S HORROR ADVENTURE
+         Es el MISMO bloque que el hero del index (mismas clases:
+         hero, hero-content, game-logo, hero-tag, btn-row), así tiene
+         exactamente las mismas proporciones. Solo cambia el fondo
+         (.bg-p-cah) y que lleva 1 botón en vez de 2.
+         ===================================================== -->
+    <section class="panel hero bg-p-cah" id="cah">
+      <div class="hero-content">
+        <h1 class="game-logo">
+          <img src="images/game-logo.png" alt="Catalina's Horror Adventure">
+        </h1>
+        <p class="hero-tag" data-i18n="hero_tag">Available now on Steam</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="index.html" data-i18n="btn_view_game">VIEW GAME PAGE</a>
+        </div>
+      </div>
+      <div class="scroll-hint">↓</div>
+    </section>
+    <!-- =====================================================
+         PROYECTO 3 · CATALINA'S ADVENTURE 2
+         Portada + logo + subtítulo, info, y Media (2 vídeos)
+         ===================================================== -->
+    <section class="panel project bg-p-cah2" id="cah2">
+      <div class="project-content">
+        <h2 class="project-logo">
+          <!-- Guarda tu logo como images/projects/cah2-logo.png -->
+          <img src="images/projects/adventure-bg.png" alt="Catalina's Adventure 2">
+        </h2>
+        <p class="project-status" data-i18n="pc2_status">In development</p>
+      </div>
+    </section>
+
+    <section class="panel bg-p-cah2-info">
+      <div class="glass-box align-right">
+        <h2 data-i18n="pc2_title">What is Catalina's Adventure 2?</h2>
+        <p data-i18n="pc2_text">Placeholder text. Tell here what the sequel brings: new places, new mechanics and where Catalina's story goes next.</p>
+      </div>
+    </section>
+
+    <!-- data-media="..." = id del panel ALL MEDIA que abre esta sección -->
+    <section class="media" data-media="mediaModalCah2">
+      <h2 class="media-title" data-i18n="media_title">Media</h2>
+      <div class="media-grid">
+        <button class="video-card" data-video="4syVyhFBJFc" data-gallery aria-label="Play video 1"><span class="play-icon">▶</span></button>
+        <button class="video-card" data-video="vsl5OyI_x2U" data-gallery aria-label="Play video 2"><span class="play-icon">▶</span></button>
+      </div>
+      <button class="btn btn-primary all-media-btn" data-i18n="media_all">ALL MEDIA</button>
+    </section>
+
+    <!-- Panel ALL MEDIA de Catalina's Adventure 2 (capturas en images/projects/cah2/) -->
+    <div class="media-modal" id="mediaModalCah2" aria-hidden="true">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div class="media-panel">
+        <div class="media-player"></div>
+        <div class="media-tabs"></div>
+
+        <h3 data-i18n="media_screenshots">Screenshots</h3>
+        <div class="shots-grid">
+          <button class="shot" data-src="images/projects/cah2/frame_0.gif" aria-label="Screenshot 1"> <img src="images/projects/cah2/frame_0.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_1.gif" aria-label="Screenshot 2"> <img src="images/projects/cah2/frame_1.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_2.gif" aria-label="Screenshot 3"> <img src="images/projects/cah2/frame_2.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_3.gif" aria-label="Screenshot 4"> <img src="images/projects/cah2/frame_3.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_4.gif" aria-label="Screenshot 5"> <img src="images/projects/cah2/frame_4.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_5.gif" aria-label="Screenshot 6"> <img src="images/projects/cah2/frame_5.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_6.gif" aria-label="Screenshot 7"> <img src="images/projects/cah2/frame_6.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_7.gif" aria-label="Screenshot 8"> <img src="images/projects/cah2/frame_7.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_8.gif" aria-label="Screenshot 9"> <img src="images/projects/cah2/frame_8.gif" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/cah2/frame_9.gif" aria-label="Screenshot 10"> <img src="images/projects/cah2/frame_9.gif" alt="" loading="lazy"></button>
+        </div>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@lazydev69" target="_blank" rel="noopener" data-i18n="media_youtube">WATCH ON YOUTUBE</a>
+      </div>
+    </div>
+    <!-- =====================================================
+         PROYECTO 2 · 1772
+         Fondo + logo + botón de instalar, y debajo sección de info
+         ===================================================== -->
+    <section class="panel hero bg-p-1772" id="p1772">
+  <div class="hero-content">
+    <h1 class="game-logo">
+      <img src="images/projects/1772-logo.png" alt="1772">
+    </h1>
+    <br>
+    <div class="btn-row">
+      <a class="btn btn-white" href="#" target="_blank" rel="noopener" data-i18n="btn_install">INSTALL</a>
+      <a class="btn btn-white" href="#" data-play="ZbjPbzZJ59k" data-i18n="btn_watch_video">WATCH VIDEO</a>
+    </div>
+  </div>
+</section>
+
+    <section class="panel bg-p-1772-info">
+      <div class="glass-box align-left">
+        <h2 data-i18n="p1772_title">What is 1772?</h2>
+        <p data-i18n="p1772_text">Placeholder text. Describe here the premise of 1772: the setting, the story and what players will experience.</p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PROYECTO 4 · SANTOPETAR
+         Fondo + logo + subtítulo, y Media con UN solo vídeo (trailer)
+         ===================================================== -->
+    <section class="panel project bg-p-santo" id="santopetar">
+      <div class="project-content">
+        <h2 class="project-logo">
+          <!-- Guarda tu logo como images/projects/santopetar-logo.png -->
+          <img src="images/projects/santopetar_logo.png" alt="Santopetar">
+        </h2>
+        <p class="project-status" data-i18n="ps_status">Concept game for future development</p>
+      </div>
+    </section>
+
+    <section class="media" data-media="mediaModalSanto">
+      <h2 class="media-title" data-i18n="media_title">Media</h2>
+      <!-- "single" = una sola tarjeta centrada -->
+      <div class="media-grid single">
+        <button class="video-card" data-video="M1BxVPSyrT4" data-gallery aria-label="Play trailer"><span class="play-icon">▶</span></button>
+      </div>
+      <button class="btn btn-primary all-media-btn" data-i18n="media_all">ALL MEDIA</button>
+    </section>
+
+    <!-- Panel ALL MEDIA de Santopetar (capturas en images/projects/santopetar/) -->
+    <div class="media-modal" id="mediaModalSanto" aria-hidden="true">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div class="media-panel">
+        <div class="media-player"></div>
+        <div class="media-tabs"></div>
+
+        <h3 data-i18n="media_screenshots">Screenshots</h3>
+        <div class="shots-grid">
+          <button class="shot" data-src="images/projects/santo/shot_1.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_1.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_2.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_2.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_3.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_3.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_4.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_4.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_5.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_5.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_8.png" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_8.png" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_6.jpg" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_6.jpg" alt="" loading="lazy"></button>
+          <button class="shot" data-src="images/projects/santo/shot_7.jpg" aria-label="Screenshot 1"> <img src="images/projects/santo/shot_7.jpg" alt="" loading="lazy"></button>
+        </div>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@lazydev69" target="_blank" rel="noopener" data-i18n="media_youtube">WATCH ON YOUTUBE</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER (igual que el index)
+       ===================================================== -->
+  <footer class="site-footer">
+    <div class="lang-switch" id="langSwitch">
+      <button data-lang="en">English</button>
+      <button data-lang="es">Español</button>
+      <button data-lang="ca">Català</button>
+    </div>
+
+    <div class="footer-logos">
+      <img src="images/logo-xikito.png" alt="Logo">
+      <span class="sep"></span>
+      <span class="platform">STEAM</span>
+      <span class="platform">WINDOWS</span>
+      <span class="sep"></span>
+      <span class="pegi">16+</span>
+    </div>
+
+    <p class="copy">© 2026 Lazy Dev · <span data-i18n="rights">All rights reserved.</span></p>
+  </footer>
+
+  <!-- VENTANA SIMPLE: sirve para ampliar las capturas -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

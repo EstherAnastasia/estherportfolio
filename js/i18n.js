@@ -80,7 +80,7 @@ const translations = {
     media_title: "Multimèdia", media_all: "VEURE TOT",
     media_screenshots: "Captures", media_youtube: "VEURE A YOUTUBE",
     rights: "Tots els drets reservats.",
-    btn_view_game: "Ir a la página",
+    btn_view_game: "Ves a la pàgina",
     btn_install: "Descàrrega",
     p1772_title: "1772",
     p1772_text: "És només un projecte amateur entre amics que vam desenvolupar en poc més de dos dies, però està directament relacionat amb Catalina's Horror Adventure. La mecànica única d'aquest joc són uns panells en els quals haurem d'avançar gràcies als nostres dots en mecanografia; farem servir uns nens perduts com a escut mentre els resolem.",
